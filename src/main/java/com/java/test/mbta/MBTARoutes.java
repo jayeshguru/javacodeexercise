@@ -82,10 +82,11 @@ public class MBTARoutes {
 		return sortedMap;
 	}
 
-	public void DisplayStopsConnectingMostRoutes() {
+	public List<String> DisplayStopsConnectingMostRoutes() {
 
 		HashSet<String> uniqueStopIds = new HashSet<String>();
 		List<Stop> stops;
+		List<String> resultList = new ArrayList<String>();
 
 		try {
 			stops = GetStopsList();
@@ -98,6 +99,7 @@ public class MBTARoutes {
 			for (String uniqueStopId : uniqueStopIds) {
 				HashSet<String> routesList = getRoutesByStopId(uniqueStopId.split("_")[1]);
 				if (routesList.size() > 1) {
+					resultList.add(uniqueStopId.split("_")[0] + "==>" + routesList);
 					System.out.println(uniqueStopId.split("_")[0] + "==>" + routesList);
 				}
 			}
@@ -108,6 +110,7 @@ public class MBTARoutes {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return resultList;
 	}
 
 	// This method sorts by Value for HashMap which has route as key and number of

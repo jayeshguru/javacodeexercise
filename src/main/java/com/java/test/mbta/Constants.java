@@ -13,7 +13,7 @@ public class Constants {
 	public static final String GET_ROUTES_BY_STOPID = "https://api-v3.mbta.com/routes?filter[type]=0,1&filter[stop]=";
 	public static final String GET_STOPS_BY_ROUTEID = "https://api-v3.mbta.com/stops?filter[route]=";
 	public static final String GET_ALL_ROUTES = "https://api-v3.mbta.com/routes?filter[type]=0,1";
-	public static final String GET_ALL_STOPS = "https://api-v3.mbta.com/stops?filter[type]=0,1";
+	public static final String GET_ALL_STOPS = "https://api-v3.mbta.com/stops?filter[route_type]=0,1";
 	
 	//Constants for HTTP Calls
 	public static final String HTTP_METHODGET = "GET";

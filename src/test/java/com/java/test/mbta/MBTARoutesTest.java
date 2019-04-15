@@ -33,7 +33,16 @@ public class MBTARoutesTest {
 	@Test
 	public void TestDisplayStopsConnectingMostRoutes() {
 		MBTARoutes mbtaRoutes = new MBTARoutes();
-		mbtaRoutes.DisplayStopsConnectingMostRoutes();
+		List<String> resultList = mbtaRoutes.DisplayStopsConnectingMostRoutes();
+		String actualResult = null;
+		for (String stopWithConnectingRoutes : resultList) {
+			if (stopWithConnectingRoutes.contains("Park Street")) {
+				actualResult = stopWithConnectingRoutes;
+				break;
+			}
+		}
+		String expectedResult = "Park Street==>[Red Line, Green Line B, Green Line E, Green Line C, Green Line D]";
+		assertEquals(expectedResult, actualResult);
 	}
 
 	@Test
